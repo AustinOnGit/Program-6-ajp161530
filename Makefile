@@ -3,7 +3,7 @@
 #ajp161530@utdallas.edu
 
 CXX = g++
-CDXXFLAGS = -Wall -g
+CDXXFLAGS = -Wall -g -Wno-write-strings
 CPPFLAGS  = -I/scratch/perkins/include
 LDFLAGS = -L/scratch/perkins/lib
 LDLIBS = -lcdk -lcurses
@@ -15,7 +15,7 @@ OBJS = program6CDK.o
 all: $(EXECFILE)
 
 clean:
-	rm -f $(OBJS) $(EXECFILE) *.P *~ \#*
+	@rm -f $(OBJS) $(EXECFILE) *.P *~ \#*
 
 $(EXECFILE): $(OBJS)
-	$(CXX) -o $@ $(OBJS) $(LDFLAGS) $(LDLIBS)
+	@$(CXX) -o $@ $(OBJS) $(LDFLAGS) $(LDLIBS)
